@@ -35,7 +35,7 @@ pipeline {
 
         stage('Run Application') {
             steps {
-                sh 'java -jar target/jenkins-demo-0.0.1.jar &'
+                bat 'java -jar target/jenkins-demo-0.0.1.jar &'
             }
         }
     }
