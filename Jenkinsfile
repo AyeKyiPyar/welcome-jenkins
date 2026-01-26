@@ -33,11 +33,20 @@ pipeline {
             }
         }
 
+        // stage('Run Application') {
+        //     steps {
+        //          sh 'java -jar target/welcome-jenkins-0.0.1-SNAPSHOT.jar'
+        //     }
+        // }
         stage('Run Application') {
             steps {
-                 sh 'java -jar target/welcome-jenkins-0.0.1-SNAPSHOT.jar'
+                sh '''
+                nohup java -jar target/welcome-jenkins-0.0.1-SNAPSHOT.jar \
+                > app.log 2>&1 &
+                '''
             }
         }
+
     }
 
     post {
