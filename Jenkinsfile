@@ -20,19 +20,19 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package -DskipTests'
+                sh 'mvn package -DskipTests'
             }
         }
 
         stage('Run Application') {
             steps {
-                 bat 'java -jar target/welcome-jenkins-0.0.1-SNAPSHOT.jar'
+                 sh 'java -jar target/welcome-jenkins-0.0.1-SNAPSHOT.jar'
             }
         }
     }
