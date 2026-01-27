@@ -29,13 +29,13 @@ pipeline {
 
         stage('Build JAR') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh """
+                bat """
                     docker build -t ${IMAGE_NAME} .
                 """
             }
@@ -43,7 +43,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                sh """
+                bat """
                     docker rm -f ${CONTAINER_NAME} || true
                     docker run -d \
                       -p ${HOST_PORT}:${CONTAINER_PORT} \
