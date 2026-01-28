@@ -1,9 +1,7 @@
 pipeline {
     agent any
 
-    tools {
-        maven "maven3.9"
-    }
+ 
 
     environment {
         IMAGE_NAME = "welcome-jenkins:1.0"
